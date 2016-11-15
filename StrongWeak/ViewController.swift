@@ -109,7 +109,9 @@ extension ViewController {
             
             let posterURL = URL(string: posterString)!
             
-            self.button.isHidden = true
+            DispatchQueue.main.async {
+                self.button.isHidden = true
+            }
             
             self.downloadImage(at: posterURL)
             
@@ -128,7 +130,10 @@ extension ViewController {
             
             let image = UIImage(data: imageData)!
             
-            self.display(image: image)
+            
+            DispatchQueue.main.async {
+                self.display(image: image)
+            }
             
             }.resume()
     }
